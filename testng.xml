@@ -19,6 +19,8 @@
                     <include name="GoToAuthorPage"/>
                     <include name="GoToNextPage"/>
                     <include name="selectOneWriter"/>
+                    <include name="GotoAuthorBook"/>
+                    <include name="FillUpBookCheckoutForm"/>
                 </methods>
             </class>
         </classes>
