@@ -50,23 +50,23 @@ public class TestAuthorPage extends DriverSetUp {
     @Test
     public void GotoAuthorBook(){
         bookPage.clickOneElement(bookPage.book_locator);
-//        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
-//        wait.until(ExpectedConditions.textToBePresentInElementLocated(bookPage.book_title_locator, "Akkharpatra Information and Communication Technology (Class 11-12) – English Version"));
         bookPage.clickOneElement(bookPage.Order_book_locator);
         WebDriverWait checkoutWait = new WebDriverWait(getDriver(), Duration.ofSeconds(20));
         checkoutWait.until(ExpectedConditions.textToBePresentInElementLocated(bookPage.checkout_popup_cart_title, "আপনি শপিং কার্টে একটি নতুন পণ্য যুক্ত করেছেন"));
         bookPage.clickOneElement(bookPage.checkout_order_button_locator);
     }
     @Test
-    public void FillUpBookCheckoutForm() {
-        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
-        WebElement selectDistrictElement = wait.until(ExpectedConditions.presenceOfElementLocated(By.tagName("select")));
+    public void FillUpBookCheckoutForm() throws InterruptedException {
+
+        WebElement selectDistrictElement = getDriver().findElement(By.tagName("select"));
         Select selectDistrict = new Select(selectDistrictElement);
         selectDistrict.selectByIndex(18);
 
-        WebElement selectAreaElement = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("billing_area")));
+        // waiting for attaching element to tho Dom
+        Thread.sleep(2000);
+        WebElement selectAreaElement = getDriver().findElement(By.xpath("//select[@id='billing_area']"));
         Select selectArea = new Select(selectAreaElement);
-        selectArea.selectByValue("320");
+        selectArea.selectByIndex(4);
 
         bookPage.getElement(bookPage.full_address_locator).sendKeys("Chandona Chourasta, Gazipur sadar, Gazipur");
         bookPage.getElement(bookPage.order_others_information).sendKeys("please, deliver this book as soon as possible");
