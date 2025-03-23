@@ -10,6 +10,10 @@ public class BookPage extends BasePage{
     public By checkout_popup_cart_title = By.xpath("//span[@class='title']");
     public By full_address_locator = By.xpath("//textarea[@id='billing_address_1']");
     public By order_others_information = By.xpath("//textarea[@id='order_comments']");
+    public By delivery_address_checkbox_locator = By.xpath("//input[@id='ship_to_office']");
+    public By delivery_gift_paper_checkbox = By.xpath("//input[@id='gift_paper']");
+
+
 
 
 

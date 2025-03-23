@@ -12,7 +12,6 @@ import pages.AuthorPage;
 import pages.BookPage;
 import pages.LoginPage;
 import utilities.DriverSetUp;
-
 import java.time.Duration;
 
 public class TestAuthorPage extends DriverSetUp {
@@ -57,7 +56,6 @@ public class TestAuthorPage extends DriverSetUp {
     }
     @Test
     public void FillUpBookCheckoutForm() throws InterruptedException {
-
         WebElement selectDistrictElement = getDriver().findElement(By.tagName("select"));
         Select selectDistrict = new Select(selectDistrictElement);
         selectDistrict.selectByIndex(18);
@@ -70,6 +68,8 @@ public class TestAuthorPage extends DriverSetUp {
 
         bookPage.getElement(bookPage.full_address_locator).sendKeys("Chandona Chourasta, Gazipur sadar, Gazipur");
         bookPage.getElement(bookPage.order_others_information).sendKeys("please, deliver this book as soon as possible");
+        bookPage.clickOneElement(bookPage.delivery_address_checkbox_locator);
+        bookPage.clickOneElement(bookPage.delivery_gift_paper_checkbox);
 
     }
 }

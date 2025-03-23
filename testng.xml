@@ -21,6 +21,7 @@
                     <include name="selectOneWriter"/>
                     <include name="GotoAuthorBook"/>
                     <include name="FillUpBookCheckoutForm"/>
+                    <include name="LogoutUser"/>
                 </methods>
             </class>
         </classes>
